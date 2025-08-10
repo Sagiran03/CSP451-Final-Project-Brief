@@ -3,7 +3,7 @@ name: Build and Push Docker Images
 on:
   push:
     branches:
-      - main  # or your main branch name
+      - main  # Change if your main branch is different
 
 jobs:
   build-and-push:
@@ -21,15 +21,15 @@ jobs:
 
       - name: Build and push inventory-api image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/inventory-api:latest ./inventory-api
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/inventory-api:latest ./RetailOps/inventory-api
           docker push ${{ secrets.DOCKER_USERNAME }}/inventory-api:latest
 
       - name: Build and push product-service image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/product-service:latest ./product-service
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/product-service:latest ./RetailOps/product-service
           docker push ${{ secrets.DOCKER_USERNAME }}/product-service:latest
 
       - name: Build and push frontend image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest ./frontend
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest ./RetailOps/frontend
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
