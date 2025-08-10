@@ -1,0 +1,11 @@
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests for inventory-api
+        run: |
+          cd RetailOps/inventory-api
+          npm install
+          npm test
+      # Repeat test commands for other services if needed
